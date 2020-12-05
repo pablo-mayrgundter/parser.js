@@ -1,6 +1,5 @@
 import Testing from './testing.mjs';
 import Parser from './parser.mjs';
-import {info} from './log.mjs';
 
 const tests = new Testing();
 
@@ -292,10 +291,11 @@ tests.add('Celestia parse', () => {
         rule: [ 'Name', 'OuterArray' ],
         callback: (state, match) => {
           recordName = names.pop();
-          records.push({
-              name: recordName,
-              paths: paths
-            });
+          const record = {
+            name: recordName,
+            paths: paths
+          };
+          records.push(record);
           recordName = null;
           paths = [];
           names = [];
@@ -303,16 +303,16 @@ tests.add('Celestia parse', () => {
         }
       },
       'Name': {
-        rule: [ /\"([A-Za-z0-9 ]+)\"\s*/ ],
+        rule: [ /\p{Z}*"([\p{L}0-9 ]+)"\p{Z}*/u ],
         callback: (state, match) => {
-          names.push(match[1]);
+          const name = match[1];
+          names.push(name);
         }
       },
       'NameList': {
         rule: [ 'Name', [ 'NameList', Parser.Terminal ] ],
         callback: (state, match) => {
           nameList.unshift(names.pop());
-          console.log('nameList after: ', nameList);
         }
       },
       'OuterArray': {
@@ -326,7 +326,6 @@ tests.add('Celestia parse', () => {
         callback: (state, match) => {
           paths.push(nameList);
           nameList = [];
-          console.log('paths after: ', paths);
         }
       }
     };
@@ -392,6 +391,21 @@ tests.add('Celestia parse', () => {
     tests.assertEquals('R3', record.name);
     tests.assertEquals(1, record.paths.length);
     tests.assertEquals('foo', record.paths[0][0]);
+
+    records = [];
+    const asterisms = `"Ursa Major"
+[
+[ "Eta UMa" "Zeta UMa" "Epsilon UMa" "Delta UMa" "Gamma UMa" "Beta UMa" "Alpha UMa" "Delta UMa" ]
+]
+
+"Ursa Minor"
+[
+[ "Alpha UMi" "Delta UMi" "Epsilon UMi" "Zeta UMi" "Beta UMi" "Gamma UMi" "Eta UMi" "Zeta UMi" ]
+]
+`;
+    const parseLength = new Parser().parse(asterisms, Grammar, 'Start');
+    console.log(JSON.stringify(records, null, '  '));
+    tests.assertEquals(asterisms.length, parseLength);
   });
 
 tests.run();

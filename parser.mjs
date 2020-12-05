@@ -1,5 +1,3 @@
-import {info} from './log.mjs';
-
 const MAX_DEPTH = 1000;
 
 /**
@@ -154,7 +152,7 @@ export default class Parser {
 
 function p(state, depth, msg, varargs) {
    if (false) {
-     info('parser:', `${''.padStart(depth * 2, ' ')}state(${state}): ${msg}`,
-          typeof varargs == 'undefined' ? '' : varargs);
+     console.log('parser:', `${''.padStart(depth * 2, ' ')}state(${state}): ${msg}`,
+                 typeof varargs == 'undefined' ? '' : varargs);
    }
 }
