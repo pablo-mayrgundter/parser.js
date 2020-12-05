@@ -1,2 +1,2 @@
 # parser.js
-Text parser in Javascript with JS-object formal grammar.
+Text parser in Javascript. Formal grammars with recursive rules and first-class JS RegExp-based rules.
