@@ -4,7 +4,7 @@ Text parser in Javascript. Formal grammars with recursive rules and first-class 
 # Example
 Parse a simple format for asterisms (constellations), found in https://github.com/pablo-mayrgundter/celestiary:
 
-```
+```javascript
 const asterisms = `"Ursa Major"
 [
 [ "Eta UMa" "Zeta UMa" "Epsilon UMa" "Delta UMa" "Gamma UMa" "Beta UMa" "Alpha UMa" "Delta UMa" ]
