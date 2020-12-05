@@ -2,7 +2,7 @@
 Text parser in Javascript. Formal grammars with recursive rules and first-class JS RegExp-based rules.
 
 # Example
-Parse a simple format for asterisms (constellations), found in [Celestiary|https://pablo-mayrgundter.github.io/celestiary/#sun]:
+Parse a simple format for asterisms (constellations), found in https://github.com/pablo-mayrgundter/celestiary:
 
 ```
 const asterisms = `"Ursa Major"
