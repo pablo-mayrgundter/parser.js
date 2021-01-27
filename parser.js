@@ -1,4 +1,6 @@
 const MAX_DEPTH = 1000;
+const TERMINAL = 'Terminal';
+
 
 /**
  * A grammar is made of a set of rules.  A rule may be one of: RegExp,
@@ -14,7 +16,6 @@ const MAX_DEPTH = 1000;
  */
 export default class Parser {
 
-  static Terminal = 'Terminal';
 
   /**
    * @param inputString String to parse.
@@ -39,7 +40,7 @@ export default class Parser {
     if (grammar == null || stateName == null) {
       throw new Error('Neither grammar nor stateName may be null');
     }
-    if (stateName == Parser.Terminal) {
+    if (stateName == TERMINAL) {
       return 0;
     }
     const state = grammar[stateName];

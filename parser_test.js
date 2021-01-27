@@ -1,5 +1,5 @@
-import Testing from './lib/testing.js/testing.mjs';
-import Parser from './parser.mjs';
+import Testing from './lib/testing.js/testing.js';
+import Parser from './parser.js';
 
 const tests = new Testing();
 
