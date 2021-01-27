@@ -157,3 +157,8 @@ function p(state, depth, msg, varargs) {
                  typeof varargs == 'undefined' ? '' : varargs);
    }
 }
+
+
+// TODO: declare the following as static after Safari adopts:
+// https://github.com/tc39/proposal-static-class-features
+Parser.Terminal = TERMINAL;
