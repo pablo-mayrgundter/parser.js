@@ -1,5 +1,5 @@
 {
-  "name": "parser.js",
+  "name": "@pablo-mayrgundter/parser.js",
   "version": "1.0.0",
   "description": "Text parser in Javascript. Formal grammars with recursive rules and first-class JS RegExp-based rules.",
   "main": "Parser.js",
