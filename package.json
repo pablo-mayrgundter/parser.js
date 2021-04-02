@@ -1,3 +1,28 @@
 {
-  "type": "module"
+  "name": "parser.js",
+  "version": "1.0.0",
+  "description": "Text parser in Javascript. Formal grammars with recursive rules and first-class JS RegExp-based rules.",
+  "main": "Parser.js",
+  "type": "module",
+  "scripts": {
+    "test": "node parser_test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pablo-mayrgundter/parser.js.git"
+  },
+  "keywords": [
+    "parser",
+    "regex",
+    "grammar"
+  ],
+  "author": "Pablo Mayrgundter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pablo-mayrgundter/parser.js/issues"
+  },
+  "homepage": "https://github.com/pablo-mayrgundter/parser.js#readme",
+  "dependencies": {
+    "@pablo-mayrgundter/testing.js": "^1.0.0"
+  }
 }

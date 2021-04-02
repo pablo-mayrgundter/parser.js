@@ -23,8 +23,11 @@ export default class Parser {
    * @param depth (optional) call depth for debug.
    * @return The next index for match in s after parsing, or -1 if no match.
    */
-  parse(inputString, grammar, state, depth = 0) {
-    const offset = this.prefixParse(inputString, grammar, state, depth);
+  parse(inputString, grammar, stateName, depth = 0) {
+    if (grammar == null || stateName == null) {
+      throw new Error(`Neither grammar(${grammar}) nor stateName(${stateName}) may be null`);
+    }
+    const offset = this.prefixParse(inputString, grammar, stateName, depth);
     if (offset == inputString.length) {
       return offset;
     }
@@ -38,7 +41,7 @@ export default class Parser {
       throw new Error('Input string cannot be null');
     }
     if (grammar == null || stateName == null) {
-      throw new Error('Neither grammar nor stateName may be null');
+      throw new Error(`Neither grammar(${grammar}) nor stateName(${stateName}) may be null`);
     }
     if (stateName == TERMINAL) {
       return 0;
@@ -149,6 +152,9 @@ export default class Parser {
     return inputOffset;
   }
 }
+
+
+Parser.Terminal = TERMINAL;
 
 
 function p(state, depth, msg, varargs) {
