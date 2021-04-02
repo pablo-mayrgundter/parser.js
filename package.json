@@ -5,7 +5,7 @@
   "main": "Parser.js",
   "type": "module",
   "scripts": {
-    "test": "node parser_test.js"
+    "test": "node Parser_test.js"
   },
   "repository": {
     "type": "git",

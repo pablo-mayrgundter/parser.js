@@ -1,5 +1,5 @@
 import Testing from '@pablo-mayrgundter/testing.js/testing.js';
-import Parser from './parser.js';
+import Parser from './Parser.js';
 
 
 const tests = new Testing();
